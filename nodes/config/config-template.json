@@ -1,0 +1,16 @@
+{
+  "network": {
+    "wifi_name": "",
+    "wifi_password": ""
+  },
+  "mqtt": {
+    "server_ip": "",
+    "server_subnetmask": "",
+    "user_name": "",
+    "user_pass": "",
+    "device": ""
+  },
+  "tracked_device": {
+    "ble_irk": ""
+  }
+}
