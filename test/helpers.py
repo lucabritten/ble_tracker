@@ -24,3 +24,7 @@ def started(room: str, at: float) -> StayEvent:
 
 def ended(room: str, at: float) -> StayEvent:
     return StayEvent(DEVICE, room, "ended", at)
+
+# ==== rssi_window ====
+WINDOW_SIZE = 5
+MAX_AGE = 10
