@@ -1,2 +1,3 @@
 aiomqtt
 psycopg2-binary
+pytest

@@ -4,6 +4,8 @@ import time
 import re
 import configparser
 
+from persistance import insert_tracked_device
+
 BLUETOOTH_DIR = "/var/lib/bluetooth"
 
 def run_cmd(cmd):
@@ -11,9 +13,6 @@ def run_cmd(cmd):
     result = subprocess.run(cmd, shell=True, text=True, capture_output=True)
     return result.stdout.strip()
 
-def is_mac_adress(name):
-    """Checks if a string is a MAC-adress"""
-    return bool(re.compile(r"^([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}$").match(name))
 
 def get_existing_devices():
     """Collects all known device-folders"""
@@ -159,6 +158,8 @@ def main():
         print(f" -> {found_irk}")
         print("=" * 60)
         print("Please write this key to config/config.json\n")
+        name = input("\nEnter the name of your phone: ")
+        insert_tracked_device(selected_mac, name)
     else:
         print("[-] Paired to your device, but no IRK was found.")
 
