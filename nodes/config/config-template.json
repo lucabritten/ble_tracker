@@ -11,6 +11,7 @@
     "device": ""
   },
   "tracked_device": {
+    "name": "",
     "ble_irk": ""
   }
 }
