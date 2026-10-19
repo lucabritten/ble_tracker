@@ -3,7 +3,7 @@ import time
 import asyncio
 import json
 
-from utility import load_from_json
+from shared.utility import load_from_json
 from track_phone import get_rssi_for_device
 
 CONFIG_FILE = "config/config.json"
@@ -17,11 +17,10 @@ def main():
     while True:
         try:
             rssi = asyncio.run(get_rssi_for_device())
-            print(rssi)
             if rssi is not None:
-                payload = str(rssi).encode('utf-8')
-                esp_position = load_from_json(CONFIG_FILE, "mqtt", "device")
-                payload = json.dumps({"device":esp_position, "rssi": rssi})
+                esp_name = load_from_json(CONFIG_FILE, "mqtt", "device")
+                device_name = load_from_json(CONFIG_FILE, "tracked_device", "name")
+                payload = json.dumps({"device_name": device_name,"esp_name":esp_name, "rssi": rssi, "timestamp": time.time()})
                 client.publish(topic, payload, qos=0)
                 print(f"Gesendet: RSSI {rssi}")
         except Exception as e:

@@ -5,7 +5,7 @@ import json
 import os
 
 from track_phone import get_rssi_for_device
-from utility import load_from_json
+from shared.utility import load_from_json
 
 CONFIG_FILE = "config/config.json"
 

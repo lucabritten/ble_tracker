@@ -1,7 +1,7 @@
 import aioble
 import ucryptolib
 
-from utility import load_from_json, reverse_bytes
+from shared.utility import load_from_json, reverse_bytes
 
 CONFIG_PATH = "config/config.json"
 
