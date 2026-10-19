@@ -176,3 +176,6 @@ requirements.txt.bak
 pip-wheel-metadata/
 
 .pip_cache/
+
+server/.idea/*
+.idea/*
