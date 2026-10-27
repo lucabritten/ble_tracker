@@ -1,0 +1,15 @@
+{
+  "mqtt": {
+    "server_ip": "",
+    "server_subnetmask": "",
+    "user_name": "",
+    "user_pass": ""
+  },
+  "postgres": {
+    "DB_HOST": "",
+    "DB_PORT": "",
+    "DB_NAME": "",
+    "DB_USER": "",
+    "DB_PASSWORD": ""
+  }
+}

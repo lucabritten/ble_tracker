@@ -19,13 +19,13 @@ class DetectionRepo:
         async with self._connection_pool.connection() as conn:
             await conn.execute(
                 """
-                INSERT INTO detection (device_name, esp_node_name, rssi, arrival_time)
-                VALUES (%s, %s, %s, %s)
+                INSERT INTO detections (device_name, esp_node_name, rssi, arrival_time)
+                VALUES (%s, %s, %s, to_timestamp(%s))
                 """,
                 (
                     detection.device_name,
                     detection.esp_node_name,
                     detection.rssi,
-                    detection.arrival_time
+                    detection.arrival_time,
                 ),
             )
